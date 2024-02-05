@@ -13,6 +13,7 @@
     @include('partials.header')
 
     <main>
+        @include ('partials.jumbo')
         <!-- yield offre la possibilità di essere sostituito -->
         @yield('main-content')
     </main>

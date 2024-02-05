@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
-    return view('pages.home');
+    $comics = config('db.comics');
+    return view('pages.comics', [ 'comics' => $comics] );
 });
+
+Route::get('comics', [ComicController::class, 'index']) -> name('comics.index');  
